@@ -13,7 +13,7 @@ export interface KakaoLoginModuleInterface {
 
   getAccessToken(): Promise<KakaoAccessTokenInfo>;
 
-  loginWithKakaoAccount(): Promise<KakaoOAuthToken>;
+  loginWithKakaoAccount(scopes: string[]): Promise<KakaoOAuthToken>;
 
   shippingAddresses(): Promise<KakaoShippingAddresses>;
 }

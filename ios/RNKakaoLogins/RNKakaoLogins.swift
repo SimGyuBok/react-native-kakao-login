@@ -89,13 +89,14 @@ class RNKakaoLogins: NSObject {
         }
     }
 
-    @objc(loginWithKakaoAccount:rejecter:)
+    @objc(loginWithKakaoAccount:scopes:rejecter:)
     func loginWithKakaoAccount(_ resolve: @escaping RCTPromiseResolveBlock,
+                scopes: [String],
                 rejecter reject: @escaping RCTPromiseRejectBlock) -> Void {
         DispatchQueue.main.async {
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss";
-            UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+            UserApi.shared.loginWithKakaoAccount(scopes: scopes) {(oauthToken, error) in
                 if let error = error {
                     reject("RNKakaoLogins", error.localizedDescription, nil)
                 }

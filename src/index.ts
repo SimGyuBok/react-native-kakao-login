@@ -7,8 +7,8 @@ const NativeKakaoLogins: KakaoLoginModuleInterface = {
   login() {
     return RNKakaoLogins.login();
   },
-  loginWithKakaoAccount() {
-    return RNKakaoLogins.loginWithKakaoAccount();
+  loginWithKakaoAccount(scopes: string[]) {
+    return RNKakaoLogins.loginWithKakaoAccount(scopes);
   },
   logout() {
     return RNKakaoLogins.logout();
